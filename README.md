@@ -161,7 +161,7 @@ BROWSER=webkit HEADLESS=false npm run test:smoke
 
 ## 🌐 Relatórios no GitHub
 
-- Allure (GitHub Pages): https://ricardooliver.github.io/blog-test-e2e-playwright/allure-report/
+- Allure (GitHub Pages): https://ricardooliver.github.io/blog-test-e2e-playwright/
 - Artifacts (Actions): https://github.com/RicardoOliver/blog-test-e2e-playwright/actions
 - Ative no repositório:
   - Settings → Actions → General → Workflow permissions → Read and write permissions
