@@ -262,12 +262,6 @@ jobs:
           allure_results: todos-resultados/relatorios/allure-results
           allure_report:  allure-report
           keep_reports:   20
-      
-      - name: 🧩 Preparar artefatos do Pages
-        if: always()
-        run: |
-          mkdir -p allure-report
-          touch allure-report/.nojekyll
 
       - name: 🚀 Publicar no GitHub Pages
         if: github.ref == 'refs/heads/main' && always()
@@ -278,6 +272,7 @@ jobs:
           publish_dir:    ./allure-report
           destination_dir: allure-report
           force_orphan: true
+          enable_jekyll: false
 
       - name: 📤 Upload do Relatório
         uses: actions/upload-artifact@v4
