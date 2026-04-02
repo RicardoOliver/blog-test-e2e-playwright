@@ -1,0 +1,54 @@
+# =============================================================================
+#  .gitignore – Blog Agi Testes JS
+# =============================================================================
+
+# ── Node ──────────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn/
+
+# ── Relatórios e Evidências (gerados automaticamente) ────────────────────────
+relatorios/
+!relatorios/.gitkeep
+
+# ── Playwright ────────────────────────────────────────────────────────────────
+test-results/
+playwright-report/
+.playwright/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Variáveis de ambiente sensíveis ──────────────────────────────────────────
+.env.local
+.env.production
+secrets.env
+
+# ── IDEs ─────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+*.suo
+*.user
+
+# ── Sistema Operacional ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── Relatórios e Evidências ───────────────────────────────────────────────
+relatorios/
+!relatorios/.gitkeep
+
+# ── Allure ────────────────────────────────────────────────────────────────
+allure-results/
+allure-report/
+
+# ── Playwright ────────────────────────────────────────────────────────────
+test-results/
+playwright-report/
+.playwright/
