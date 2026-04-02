@@ -84,25 +84,38 @@ export class PaginaPesquisa extends PaginaBase {
   }
 
   async realizarNovaPesquisa(novoTermo) {
-    console.log(`🔍 Realizando nova pesquisa por: "${novoTermo}"`);
+    console.log(`🔍 Realizando nova pesquisa por: "${novoTermo}" na página de resultados`);
     const campo = this.pagina.locator(SEL.campoPesquisa).first();
     
     try {
-      // Se houver um botão de lupa na página de resultados para abrir o campo
+      // 1. Tenta abrir a lupa se ela existir e estiver visível (alguns temas mudam o header nos resultados)
       const botao = this.pagina.locator(SEL.botaoPesquisa).first();
       if (await botao.isVisible()) {
-        await botao.click();
+        await botao.click({ force: true });
+        await this.pagina.waitForTimeout(500);
       }
 
-      // Preenche o campo (que já está visível na página de resultados por padrão no tema Astra)
+      // 2. Tenta focar e preencher o campo
       await campo.waitFor({ state: 'attached', timeout: 5000 });
+      
+      // Se o campo estiver no DOM mas "invisível" para o Playwright, forçamos a visibilidade
+      if (!(await campo.isVisible())) {
+        console.warn('⚠️ Campo de pesquisa não visível, forçando via JS');
+        await campo.evaluate((el) => {
+          el.style.display = 'block';
+          el.style.visibility = 'visible';
+          el.style.opacity = '1';
+          el.focus();
+        });
+      }
+
       await campo.fill(novoTermo);
       await campo.press('Enter');
       await this.aguardarCarregamento();
     } catch (erro) {
-      console.warn('⚠️ Falha ao usar campo de pesquisa da página de resultados, usando fallback URL');
+      console.warn('⚠️ Falha ao interagir com o campo de pesquisa na página de resultados, usando fallback URL');
       const urlPesquisa = `https://blog.agibank.com.br/?s=${encodeURIComponent(novoTermo)}`;
-      await this.pagina.goto(urlPesquisa, { waitUntil: 'domcontentloaded' });
+      await this.pagina.goto(urlPesquisa, { waitUntil: 'domcontentloaded', timeout: 30000 });
     }
     
     return new PaginaPesquisa(this.pagina);
