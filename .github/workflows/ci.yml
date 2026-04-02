@@ -255,11 +255,29 @@ jobs:
           path: todos-resultados/
           merge-multiple: true
 
-      - name: 📊 Gerar Relatório Allure
+      - name: Detectar Allure results
+        shell: bash
+        run: |
+          set -euo pipefail
+          RESULT_FILE="$(find todos-resultados -type f -name '*-result.json' | head -n 1 || true)"
+          if [ -z "${RESULT_FILE}" ]; then
+            echo "Nenhum arquivo *-result.json encontrado em todos-resultados/"
+            echo "Dump do diretório:"
+            ls -la todos-resultados || true
+            find todos-resultados -maxdepth 4 -type d -print || true
+            exit 1
+          fi
+          RESULT_DIR="$(dirname "${RESULT_FILE}")"
+          echo "ALLURE_RESULTS_DIR=${RESULT_DIR}" >> "$GITHUB_ENV"
+          echo "Allure results detectado em: ${RESULT_DIR}"
+          echo "Quantidade de arquivos:"
+          find "${RESULT_DIR}" -type f | wc -l
+
+      - name: Gerar Relatório Allure
         uses: simple-elf/allure-report-action@master
         if: always()
         with:
-          allure_results: todos-resultados/relatorios/allure-results
+          allure_results: ${{ env.ALLURE_RESULTS_DIR }}
           allure_report:  allure-report
           keep_reports:   20
 
