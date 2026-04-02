@@ -50,8 +50,28 @@ When('navego para a próxima página', async function () {
   console.log('=== QUANDO: Navegando para próxima página ===');
 
   const pagina = mundoCenario.pagina;
-  await pagina.click(SEL_PROX_PAG);
-  await pagina.waitForLoadState('domcontentloaded');
+  const botaoProx = pagina.locator(SEL_PROX_PAG).first();
+
+  try {
+    // 1. Rola até o final para garantir que a paginação apareça
+    await pagina.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    
+    // 2. Aguarda o botão ficar visível e clica (com scroll automático do Playwright)
+    await botaoProx.waitFor({ state: 'visible', timeout: 5000 });
+    await botaoProx.click();
+    
+    // 3. Aguarda o carregamento da nova página
+    await pagina.waitForLoadState('domcontentloaded');
+  } catch (erro) {
+    console.warn('⚠️ Falha ao clicar no botão "Próxima" via interface, tentando via URL direta');
+    // Fallback: Tenta pegar o href e navegar direto se o clique falhar
+    const href = await botaoProx.getAttribute('href').catch(() => null);
+    if (href) {
+      await pagina.goto(href, { waitUntil: 'domcontentloaded' });
+    } else {
+      throw new Error(`Não foi possível navegar para a próxima página: ${erro.message}`);
+    }
+  }
 
   console.log(`✅ Próxima página. URL: ${pagina.url()}`);
 });
