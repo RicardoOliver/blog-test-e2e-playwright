@@ -56,8 +56,8 @@ blog-agi-testes-js/
 │
 └── testes/
     ├── funcionalidades/
-    │   ├── pesquisa_artigos.feature      # BDD – Pesquisa (22 cenários)
-    │   └── navegacao_categorias.feature  # BDD – Navegação (18 cenários)
+    │   ├── pesquisa_artigos.feature      # BDD – Pesquisa (23 cenários)
+    │   └── navegacao_categorias.feature  # BDD – Navegação (16 cenários)
     ├── passos/
     │   ├── passosComuns.js          # Steps compartilhados (Given + Thens globais)
     │   ├── passosPesquisa.js        # Steps de pesquisa
@@ -126,7 +126,7 @@ npm run test:headed
 npm run test:firefox
 
 # Tags customizadas
-npx cucumber-js --config cucumber.cjs --tags '@smoke and not @Ignorar'
+npx cucumber-js --config cucumber.cjs --tags "@smoke and not @Ignorar"
 npx cucumber-js --config cucumber.cjs -p regressao
 ```
 
@@ -156,6 +156,16 @@ BROWSER=webkit HEADLESS=false npm run test:smoke
 | 🔄 Regressão (matrix) | Pesquisa + Navegação | Não |
 | 🚦 **Quality Gate** | Avalia resultados | **Sim** |
 | 📊 Evidências/Allure | Artifacts do GitHub | Não |
+
+---
+
+## 🌐 Relatórios no GitHub
+
+- Allure (GitHub Pages): https://ricardooliver.github.io/blog-test-e2e-playwright/allure-report/
+- Artifacts (Actions): https://github.com/RicardoOliver/blog-test-e2e-playwright/actions
+- Ative no repositório:
+  - Settings → Actions → General → Workflow permissions → Read and write permissions
+  - Settings → Pages → Deploy from a branch → gh-pages (root)
 
 ---
 
