@@ -3,13 +3,7 @@
 //  Blog do Agi – Automação de Testes (JavaScript)
 // =============================================================================
 
-const relatorioAllure = [
-  'allure-cucumberjs/reporter',
-  {
-    resultsDir: 'relatorios/allure-results',
-    testMode: false,
-  },
-].join(':');
+const relatorioAllure = 'allure-cucumberjs/reporter';
 
 const relatorioJson = 'json:relatorios/cucumber-report.json';
 const relatorioHtml = 'html:relatorios/cucumber-report.html';
@@ -33,6 +27,7 @@ module.exports = {
     ],
     formatOptions: {
       snippetInterface: 'async-await',
+      resultsDir: 'relatorios/allure-results',
     },
     tags: 'not @Ignorar',
     parallel: 1,
@@ -49,6 +44,9 @@ module.exports = {
     ],
     language: 'pt',
     format: [relatorioConsole, relatorioJson, relatorioAllure],
+    formatOptions: {
+      resultsDir: 'relatorios/allure-results',
+    },
     tags: '@smoke',
     parallel: 1,
     timeout: 30000,
@@ -63,8 +61,11 @@ module.exports = {
     ],
     language: 'pt',
     format: [relatorioConsole, relatorioJson, relatorioHtml, relatorioAllure],
+    formatOptions: {
+      resultsDir: 'relatorios/allure-results',
+    },
     tags: '@regressao and not @Ignorar',
-    parallel: 2, // Aumentado para rodar 2 cenários simultâneos
+    parallel: 2,
     timeout: 60000,
   },
 

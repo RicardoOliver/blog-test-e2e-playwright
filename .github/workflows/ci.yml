@@ -243,6 +243,8 @@ jobs:
     needs: quality-gate
     if: always() && needs.smoke-tests.result != 'cancelled'
     timeout-minutes: 10
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -257,9 +259,15 @@ jobs:
         uses: simple-elf/allure-report-action@master
         if: always()
         with:
-          allure_results: todos-resultados/allure-results
+          allure_results: todos-resultados/relatorios/allure-results
           allure_report:  allure-report
           keep_reports:   20
+      
+      - name: 🧩 Preparar artefatos do Pages
+        if: always()
+        run: |
+          mkdir -p allure-report
+          touch allure-report/.nojekyll
 
       - name: 🚀 Publicar no GitHub Pages
         if: github.ref == 'refs/heads/main' && always()
@@ -267,8 +275,9 @@ jobs:
         with:
           github_token:   ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir:    allure-report
+          publish_dir:    ./allure-report
           destination_dir: allure-report
+          force_orphan: true
 
       - name: 📤 Upload do Relatório
         uses: actions/upload-artifact@v4
