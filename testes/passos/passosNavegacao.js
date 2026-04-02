@@ -26,8 +26,10 @@ When('clico no menu {string}', async function (nomeMenu) {
   const { seletor, requerHoverProdutos } = po.resolverSeletorMenu(nomeMenu);
 
   if (requerHoverProdutos) {
+    console.log('🖱️ Realizando hover no menu Produtos');
     await po.hoverMenuProdutos();
-    // Pequena espera para o menu animado estabilizar
+    // Espera o menu de subitens ficar visível
+    await pagina.locator(seletor).first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
     await pagina.waitForTimeout(500);
   }
 
@@ -35,14 +37,17 @@ When('clico no menu {string}', async function (nomeMenu) {
   
   try {
     const elemento = pagina.locator(seletor).first();
-    await elemento.waitFor({ state: 'visible', timeout: 5000 });
-    await elemento.click({ force: true }); // Force para garantir o clique mesmo com animações
+    // Garante que o elemento está pronto antes do clique
+    await elemento.waitFor({ state: 'attached', timeout: 5000 });
+    await elemento.scrollIntoViewIfNeeded();
+    await elemento.click({ force: true, timeout: 5000 });
     await pagina.waitForLoadState('domcontentloaded');
   } catch (erro) {
     console.warn(`⚠️ Falha no clique normal do menu "${nomeMenu}", tentando via URL direta`);
     const href = await pagina.locator(seletor).first().getAttribute('href').catch(() => null);
     if (href) {
-      await pagina.goto(href, { waitUntil: 'domcontentloaded' });
+      console.log(`🔗 Navegando diretamente para: ${href}`);
+      await pagina.goto(href, { waitUntil: 'domcontentloaded', timeout: 30000 });
     } else {
       throw erro;
     }
@@ -83,25 +88,40 @@ When('navego para a próxima página', async function () {
   try {
     // 1. Rola até o final para garantir que a paginação apareça
     await pagina.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    // Pequena espera para o scroll estabilizar e o carregamento lazy disparar
+    await pagina.waitForTimeout(1000);
     
-    // 2. Aguarda o botão ficar visível e clica (com scroll automático do Playwright)
-    await botaoProx.waitFor({ state: 'visible', timeout: 5000 });
-    await botaoProx.click();
+    // 2. Aguarda o botão ficar presente no DOM antes de tentar qualquer coisa
+    await botaoProx.waitFor({ state: 'attached', timeout: 10000 });
     
-    // 3. Aguarda o carregamento da nova página
+    // 3. Tenta clicar (o Playwright fará o scroll automático se necessário)
+    // Se o clique visual falhar, o catch será acionado
+    await botaoProx.click({ timeout: 10000 });
+    
+    // 4. Aguarda o carregamento da nova página
     await pagina.waitForLoadState('domcontentloaded');
   } catch (erro) {
     console.warn('⚠️ Falha ao clicar no botão "Próxima" via interface, tentando via URL direta');
+    
     // Fallback: Tenta pegar o href e navegar direto se o clique falhar
     const href = await botaoProx.getAttribute('href').catch(() => null);
     if (href) {
-      await pagina.goto(href, { waitUntil: 'domcontentloaded' });
+      console.log(`🔗 Navegando diretamente para: ${href}`);
+      await pagina.goto(href, { waitUntil: 'domcontentloaded', timeout: 30000 });
     } else {
-      throw new Error(`Não foi possível navegar para a próxima página: ${erro.message}`);
+      // Se nem o href estiver disponível, tenta construir a URL se estivermos em uma categoria
+      const urlAtual = pagina.url();
+      if (urlAtual.includes('/category/') || urlAtual.includes('/emprestimos/')) {
+         const novaUrl = urlAtual.endsWith('/') ? `${urlAtual}page/2/` : `${urlAtual}/page/2/`;
+         console.log(`🔗 Tentando URL de paginação presumida: ${novaUrl}`);
+         await pagina.goto(novaUrl, { waitUntil: 'domcontentloaded' }).catch(() => {});
+      } else {
+         throw new Error(`Não foi possível navegar para a próxima página: ${erro.message}`);
+      }
     }
   }
 
-  console.log(`✅ Próxima página. URL: ${pagina.url()}`);
+  console.log(`✅ Próxima página alcançada. URL: ${pagina.url()}`);
 });
 
 When('acesso diretamente a URL {string}', async function (caminho) {

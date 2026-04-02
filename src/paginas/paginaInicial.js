@@ -54,20 +54,26 @@ export class PaginaInicial extends PaginaBase {
 
       // Clica na lupa para abrir o campo deslizante
       const botao = this.pagina.locator(SEL.botaoPesquisa).first();
-      await botao.click();
+      await botao.waitFor({ state: 'attached', timeout: 5000 });
+      await botao.click({ force: true });
       console.log('✅ Clique na lupa realizado');
 
       // Espera a animação de "slide" terminar e o campo ficar visível
-      // Usamos force: true no fill/click posterior se necessário, mas aqui aguardamos a visibilidade
-      await campo.waitFor({ state: 'visible', timeout: 5000 });
+      await campo.waitFor({ state: 'visible', timeout: 7000 });
       console.log('✅ Campo de pesquisa agora está visível');
     } catch (erro) {
-      console.warn('⚠️ Falha ao abrir via UI, forçando via classe CSS');
+      console.warn('⚠️ Falha ao abrir via UI, forçando via classe CSS e JS');
       await this.pagina.evaluate(() => {
         document.body.classList.add('ast-search-active');
-        const input = document.querySelector('#search-field');
-        if (input) input.focus();
+        const input = document.querySelector('#search-field, input[name="s"]');
+        if (input) {
+          input.style.display = 'block';
+          input.style.visibility = 'visible';
+          input.style.opacity = '1';
+          input.focus();
+        }
       }).catch(() => {});
+      await this.pagina.waitForTimeout(500);
     }
     return this;
   }

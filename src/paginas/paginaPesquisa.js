@@ -50,15 +50,13 @@ export class PaginaPesquisa extends PaginaBase {
   }
 
   urlContemTermoPesquisa(termo) {
-    const url      = this.obterUrlAtual().toLowerCase();
-    const termoLower = termo.toLowerCase();
-    const codif    = encodeURIComponent(termoLower).replace(/%20/g, '+');
-    const codifRaw = encodeURIComponent(termoLower);
-    
-    return url.includes(`s=${codif}`) ||
-           url.includes(`s=${codifRaw}`) ||
-           url.includes(`s=${termoLower}`) ||
-           url.includes(termoLower);
+    const urlDecodificada = decodeURIComponent(this.obterUrlAtual()).toLowerCase();
+    const termoLower      = termo.toLowerCase();
+    const termoComMais    = termoLower.replace(/\s+/g, '+');
+
+    return urlDecodificada.includes(`s=${termoLower}`) ||
+           urlDecodificada.includes(`s=${termoComMais}`) ||
+           urlDecodificada.includes(termoLower);
   }
 
   paginaResultadosCarregada() {
