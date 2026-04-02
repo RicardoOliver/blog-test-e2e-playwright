@@ -7,15 +7,17 @@ import { When, Then }      from '@cucumber/cucumber';
 import { strict as assert } from 'assert';
 import { mundoCenario }    from '../../src/suporte/mundoCenario.js';
 import { PaginaArtigo }    from '../../src/paginas/paginaArtigo.js';
+import { PaginaInicial }   from '../../src/paginas/paginaInicial.js';
 
 // ── QUANDO ────────────────────────────────────────────────────────────────────
 
 When('aciono a pesquisa por {string}', async function (termo) {
   console.log(`=== QUANDO: Pesquisando por "${termo}" ===`);
 
+  const po = mundoCenario.paginaInicial ?? new PaginaInicial(mundoCenario.pagina);
+  mundoCenario.paginaInicial = po;
   mundoCenario.ultimoTermoPesquisado = termo;
-  mundoCenario.paginaPesquisa =
-    await mundoCenario.paginaInicial.pesquisar(termo);
+  mundoCenario.paginaPesquisa = await po.pesquisar(termo);
 
   console.log(`✅ Pesquisa submetida. URL: ${mundoCenario.paginaPesquisa.obterUrlAtual()}`);
 });

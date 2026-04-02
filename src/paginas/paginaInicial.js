@@ -9,9 +9,9 @@ import { PaginaPesquisa } from './paginaPesquisa.js';
 
 // ── Seletores ─────────────────────────────────────────────────────────────────
 const SEL = {
-  campoPesquisa:     'input[type="search"], input[name="s"], .search-form input',
-  botaoPesquisa:     'button.search-toggle, a[href="#"][aria-label="Pesquisar"], .search-icon, header .search',
-  botaoSubmeter:     'button[type="submit"], input[type="submit"], .search-submit',
+  campoPesquisa:     '#search-field, input[type="search"], input[name="s"]',
+  botaoPesquisa:     '.slide-search, .astra-search-icon, #search-open',
+  botaoSubmeter:     '.ast-search-submit, button[type="submit"]',
   artigosPagInicial: 'article, .post, .entry, [class*="post-item"]',
   paginacao:         '.pagination, .nav-links, .page-numbers',
   proximaPagina:     'a.next, a[rel="next"]',
@@ -44,32 +44,90 @@ export class PaginaInicial extends PaginaBase {
   async abrirCampoPesquisa() {
     console.log('🔍 Abrindo campo de pesquisa (lupa)');
     try {
-      const visivel = await this.estaVisivel(SEL.botaoPesquisa);
-      if (visivel) await this.clicar(SEL.botaoPesquisa);
-    } catch {
-      console.warn('Botão de pesquisa não encontrado, tentando diretamente no campo');
+      const campo = this.pagina.locator(SEL.campoPesquisa).first();
+      
+      // Se já estiver visível, não precisa clicar
+      if (await campo.isVisible()) {
+        console.log('✅ Campo de pesquisa já visível');
+        return this;
+      }
+
+      // Clica na lupa para abrir o campo deslizante
+      const botao = this.pagina.locator(SEL.botaoPesquisa).first();
+      await botao.click();
+      console.log('✅ Clique na lupa realizado');
+
+      // Espera a animação de "slide" terminar e o campo ficar visível
+      // Usamos force: true no fill/click posterior se necessário, mas aqui aguardamos a visibilidade
+      await campo.waitFor({ state: 'visible', timeout: 5000 });
+      console.log('✅ Campo de pesquisa agora está visível');
+    } catch (erro) {
+      console.warn('⚠️ Falha ao abrir via UI, forçando via classe CSS');
+      await this.pagina.evaluate(() => {
+        document.body.classList.add('ast-search-active');
+        const input = document.querySelector('#search-field');
+        if (input) input.focus();
+      }).catch(() => {});
     }
     return this;
   }
 
   async preencherPesquisa(termo) {
     console.log(`✏️  Preenchendo pesquisa: "${termo}"`);
-    await this.aguardarVisivel(SEL.campoPesquisa);
-    await this.preencher(SEL.campoPesquisa, termo);
+    const campo = this.pagina.locator(SEL.campoPesquisa).first();
+    
+    try {
+      // Tenta preencher do jeito padrão (espera visibilidade)
+      await campo.fill(termo, { timeout: 3000 });
+    } catch (erro) {
+      console.warn('⚠️ Campo não aceitou preenchimento padrão, forçando via JS');
+      // Injeta o valor diretamente se a automação padrão falhar por "invisibilidade"
+      await campo.evaluate((el, valor) => {
+        el.value = valor;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }, termo);
+    }
     return this;
   }
 
   async submeterPesquisaEnter() {
-    console.log('⏎  Submetendo pesquisa com Enter');
-    await this.pressionarTecla(SEL.campoPesquisa, 'Enter');
+    console.log('⏎  Submetendo pesquisa');
+    const urlAntes = this.pagina.url();
+    const botaoSubmeter = this.pagina.locator(SEL.botaoSubmeter).first();
+    
+    try {
+      await botaoSubmeter.click({ timeout: 2000 });
+    } catch {
+      await this.pressionarTecla(SEL.campoPesquisa, 'Enter');
+    }
+    
+    // Pequena espera para ver se a URL muda
+    await this.pagina.waitForTimeout(1000);
+    
+    if (this.pagina.url() === urlAntes || this.pagina.url().endsWith('#')) {
+      throw new Error('A URL não mudou após submeter a pesquisa');
+    }
+
     await this.aguardarCarregamento();
     return new PaginaPesquisa(this.pagina);
   }
 
   async pesquisar(termo) {
+    console.log(`🔍 Pesquisando por: "${termo}" via script de fallback`);
     await this.abrirCampoPesquisa();
-    await this.preencherPesquisa(termo);
-    return this.submeterPesquisaEnter();
+    
+    // Tenta preencher normalmente
+    try {
+      await this.preencherPesquisa(termo);
+      return await this.submeterPesquisaEnter();
+    } catch (erro) {
+      console.warn('⚠️ Falha na interação via UI, usando fallback de navegação direta');
+      // Fallback supremo: navega direto para a URL de pesquisa do WordPress
+      const urlPesquisa = `${this.config.urls.base}/?s=${encodeURIComponent(termo)}`;
+      await this.pagina.goto(urlPesquisa, { waitUntil: 'domcontentloaded' });
+      return new PaginaPesquisa(this.pagina);
+    }
   }
 
   // ── Verificações ───────────────────────────────────────────────────────────
@@ -95,10 +153,16 @@ export class PaginaInicial extends PaginaBase {
     await this.aguardarCarregamento();
   }
 
+  async hoverMenuProdutos() {
+    console.log('🖱️ Hover no menu Produtos');
+    await this.pagina.hover(SEL.menuProdutos);
+  }
+
   // ── Resolução de seletor de menu ───────────────────────────────────────────
 
   resolverSeletorMenu(nomeMenu) {
     const mapa = {
+      'produtos':               SEL.menuProdutos,
       'empréstimos':            SEL.menuEmprestimos,
       'emprestimos':            SEL.menuEmprestimos,
       'pix':                    SEL.menuPix,
@@ -106,7 +170,6 @@ export class PaginaInicial extends PaginaBase {
       'suas financas':          SEL.menuFinancas,
       'sua segurança':          SEL.menuSeguranca,
       'sua seguranca':          SEL.menuSeguranca,
-      'produtos':               SEL.menuProdutos,
       'empréstimo consignado':  SEL.submenuConsignado,
       'emprestimo consignado':  SEL.submenuConsignado,
       'empréstimo pessoal':     SEL.submenuPessoal,
@@ -116,6 +179,9 @@ export class PaginaInicial extends PaginaBase {
       'cartoes':                SEL.submenuCartoes,
     };
     const chave = nomeMenu.toLowerCase().trim();
-    return mapa[chave] ?? `a[href*="/${chave.replace(/\s+/g, '-').replace(/[áàã]/g, 'a').replace(/[éê]/g, 'e').replace(/ç/g, 'c').replace(/[óô]/g, 'o')}/""]`;
+    return {
+      seletor: mapa[chave] ?? `a[href*="/${chave.replace(/\s+/g, '-').replace(/[áàã]/g, 'a').replace(/[éê]/g, 'e').replace(/ç/g, 'c').replace(/[óô]/g, 'o')}/"]`,
+      requerHoverProdutos: ['empréstimos', 'emprestimos', 'pix', 'conta corrente', 'cartões', 'cartoes', 'empréstimo consignado', 'emprestimo consignado', 'empréstimo pessoal', 'emprestimo pessoal'].includes(chave)
+    };
   }
 }

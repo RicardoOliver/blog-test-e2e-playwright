@@ -18,15 +18,15 @@
 
 | # | Funcionalidade | Cenários |
 |---|---------------|:--------:|
-| 1 | **Pesquisa de Artigos** (lupa superior direita) | 22 |
-| 2 | **Navegação por Categorias** (menu principal) | 18 |
-| — | **Total** | **40** |
+| 1 | **Pesquisa de Artigos** (lupa superior direita) | 23 |
+| 2 | **Navegação por Categorias** (menu principal) | 16 |
+| — | **Total** | **39** |
 
-### Cobertura por tipo
+### Cobertura por tipo (Estimada)
 
 | ✅ Happy Path | ❌ Negativos | 📐 Limite | 🔥 Edge Cases |
 |:---:|:---:|:---:|:---:|
-| 20 | 12 | 13 | 13 |
+| 15 | 8 | 8 | 8 |
 
 ---
 
@@ -34,10 +34,10 @@
 
 ```
 blog-agi-testes-js/
-├── .github/workflows/ci.yml          # Pipeline CI/CD (5 jobs + Quality Gate)
+├── .github/workflows/ci.yml          # Pipeline CI/CD (4 jobs + Quality Gate)
 ├── .env                              # Configurações de ambiente (não versionar em prod)
 ├── .gitignore
-├── cucumber.js                       # Configuração central do Cucumber (perfis)
+├── cucumber.cjs                      # Configuração central do Cucumber (perfis)
 ├── package.json                      # Dependências Node.js
 ├── README.md
 │
@@ -74,6 +74,8 @@ blog-agi-testes-js/
 |-----------|:------:|
 | Node.js   | 18+    |
 | npm       | 9+     |
+| Java (JRE)| 8+ (para o Allure) |
+| Allure CLI| via npm install |
 
 ---
 
@@ -84,16 +86,16 @@ blog-agi-testes-js/
 git clone https://github.com/seu-usuario/blog-agi-testes-js.git
 cd blog-agi-testes-js
 
-# 2. Instalar dependências
+# 2. Instalar dependências (Inclui Allure e Cucumber)
 npm install
 
-# 3. Instalar browsers do Playwright
+# 3. Instalar browsers do Playwright (Chromium, Firefox, Webkit)
 npm run instalar-browsers
 
 # 4. Executar todos os testes
 npm test
 
-# 5. Gerar e abrir relatório Allure
+# 5. Gerar e abrir relatório Allure (requer Java instalado para o binário do Allure)
 npm run relatorio
 ```
 
@@ -124,8 +126,8 @@ npm run test:headed
 npm run test:firefox
 
 # Tags customizadas
-npx cucumber-js --tags '@smoke and not @Ignorar'
-npx cucumber-js --profile regressao
+npx cucumber-js --config cucumber.cjs --tags '@smoke and not @Ignorar'
+npx cucumber-js --config cucumber.cjs -p regressao
 ```
 
 ---
@@ -153,7 +155,7 @@ BROWSER=webkit HEADLESS=false npm run test:smoke
 | 💨 Smoke Tests | Testes críticos | **Sim** |
 | 🔄 Regressão (matrix) | Pesquisa + Navegação | Não |
 | 🚦 **Quality Gate** | Avalia resultados | **Sim** |
-| 📊 Relatório Allure | GitHub Pages | Não |
+| 📊 Evidências/Allure | Artifacts do GitHub | Não |
 
 ---
 

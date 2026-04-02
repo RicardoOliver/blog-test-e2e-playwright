@@ -24,6 +24,7 @@ playwright-report/
 logs/
 
 # ── Variáveis de ambiente sensíveis ──────────────────────────────────────────
+.env
 .env.local
 .env.production
 secrets.env

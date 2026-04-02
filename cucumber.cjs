@@ -13,7 +13,7 @@ const relatorioAllure = [
 
 const relatorioJson = 'json:relatorios/cucumber-report.json';
 const relatorioHtml = 'html:relatorios/cucumber-report.html';
-const relatorioConsole = 'progress-bar';
+const relatorioConsole = 'progress';
 
 module.exports = {
   // ─── Perfil padrão (headless, todos os testes) ───────────────────────────
@@ -38,7 +38,6 @@ module.exports = {
     parallel: 1,
     retry: 0,
     timeout: 60000,
-    publishQuiet: true,
   },
 
   // ─── Perfil: Smoke (testes críticos) ─────────────────────────────────────
@@ -53,7 +52,6 @@ module.exports = {
     tags: '@smoke',
     parallel: 1,
     timeout: 30000,
-    publishQuiet: true,
   },
 
   // ─── Perfil: Regressão completa ───────────────────────────────────────────
@@ -68,7 +66,6 @@ module.exports = {
     tags: '@regressao and not @Ignorar',
     parallel: 1,
     timeout: 60000,
-    publishQuiet: true,
   },
 
   // ─── Perfil: Headed (desenvolvimento local) ───────────────────────────────
@@ -83,6 +80,5 @@ module.exports = {
     tags: 'not @Ignorar',
     parallel: 1,
     timeout: 90000,
-    publishQuiet: true,
   },
 };

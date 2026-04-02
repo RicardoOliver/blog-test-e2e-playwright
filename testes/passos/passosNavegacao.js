@@ -23,7 +23,11 @@ When('clico no menu {string}', async function (nomeMenu) {
 
   const pagina  = mundoCenario.pagina;
   const po      = mundoCenario.paginaInicial ?? new PaginaInicial(pagina);
-  const seletor = po.resolverSeletorMenu(nomeMenu);
+  const { seletor, requerHoverProdutos } = po.resolverSeletorMenu(nomeMenu);
+
+  if (requerHoverProdutos) {
+    await po.hoverMenuProdutos();
+  }
 
   console.log(`   Seletor: ${seletor}`);
   await pagina.click(seletor);
@@ -68,15 +72,6 @@ When('acesso diretamente a URL da categoria {string}', async function (caminho) 
   await pagina.goto(configuracao.urls.base + caminho, { waitUntil: 'domcontentloaded' });
 
   console.log(`✅ Categoria acessada: ${pagina.url()}`);
-});
-
-When('aciono a pesquisa por {string}', async function (termo) {
-  console.log(`=== QUANDO: Pesquisando por "${termo}" (a partir de categoria) ===`);
-
-  const paginaInicial = new PaginaInicial(mundoCenario.pagina);
-  mundoCenario.paginaInicial = paginaInicial;
-  mundoCenario.ultimoTermoPesquisado = termo;
-  mundoCenario.paginaPesquisa = await paginaInicial.pesquisar(termo);
 });
 
 // ── ENTÃO ─────────────────────────────────────────────────────────────────────

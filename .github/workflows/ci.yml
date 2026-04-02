@@ -50,14 +50,16 @@ jobs:
         run: npm ci
 
       - name: 🌐 Instalar browsers do Playwright
-        run: npx playwright install chromium --with-deps
+        run: npx playwright install ${{ github.event.inputs.browser || 'chromium' }} --with-deps
 
       - name: 🔍 Validar features (dry-run)
         run: |
           npx cucumber-js \
             --config cucumber.cjs \
             --dry-run \
-            --tags 'not @Ignorar'
+            --tags '${{ github.event.inputs.tags || 'not @Ignorar' }}'
+        env:
+          BROWSER: ${{ github.event.inputs.browser || 'chromium' }}
 
   # ── 2. Smoke Tests ────────────────────────────────────────────────────────
   smoke-tests:
@@ -77,7 +79,7 @@ jobs:
       - run: npm ci
 
       - name: 🌐 Instalar browsers
-        run: npx playwright install chromium --with-deps
+        run: npx playwright install ${{ github.event.inputs.browser || 'chromium' }} --with-deps
 
       - name: 💨 Executar Smoke Tests
         run: npm run test:smoke
@@ -125,7 +127,7 @@ jobs:
       - run: npm ci
 
       - name: 🌐 Instalar browsers
-        run: npx playwright install chromium --with-deps
+        run: npx playwright install ${{ github.event.inputs.browser || 'chromium' }} --with-deps
 
       - name: 🧪 Executar – ${{ matrix.funcionalidade.nome }}
         run: |

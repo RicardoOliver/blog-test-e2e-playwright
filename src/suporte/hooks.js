@@ -4,13 +4,15 @@
 //  Gerencia ciclo de vida do Playwright e coleta de evidências.
 // =============================================================================
 
-import { Before, After, BeforeAll, AfterAll, Status } from '@cucumber/cucumber';
+import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import { mkdirSync }                                  from 'fs';
 import { configuracao }                               from '../configuracao/configuracao.js';
 import { gerenciador }                                from './gerenciadorPlaywright.js';
 import { mundoCenario }                               from './mundoCenario.js';
 
 // ── Setup global ──────────────────────────────────────────────────────────────
+
+setDefaultTimeout(30000);
 
 BeforeAll(async function () {
   console.log('\n╔══════════════════════════════════════════════════════════════╗');
