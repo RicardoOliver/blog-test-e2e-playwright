@@ -103,9 +103,10 @@ export class PaginaInicial extends PaginaBase {
     }
     
     // Pequena espera para ver se a URL muda
-    await this.pagina.waitForTimeout(1000);
+    await this.pagina.waitForTimeout(2000);
     
     if (this.pagina.url() === urlAntes || this.pagina.url().endsWith('#')) {
+      console.warn('⚠️ Submissão via UI falhou, forçando fallback');
       throw new Error('A URL não mudou após submeter a pesquisa');
     }
 

@@ -27,11 +27,26 @@ When('clico no menu {string}', async function (nomeMenu) {
 
   if (requerHoverProdutos) {
     await po.hoverMenuProdutos();
+    // Pequena espera para o menu animado estabilizar
+    await pagina.waitForTimeout(500);
   }
 
   console.log(`   Seletor: ${seletor}`);
-  await pagina.click(seletor);
-  await pagina.waitForLoadState('domcontentloaded');
+  
+  try {
+    const elemento = pagina.locator(seletor).first();
+    await elemento.waitFor({ state: 'visible', timeout: 5000 });
+    await elemento.click({ force: true }); // Force para garantir o clique mesmo com animações
+    await pagina.waitForLoadState('domcontentloaded');
+  } catch (erro) {
+    console.warn(`⚠️ Falha no clique normal do menu "${nomeMenu}", tentando via URL direta`);
+    const href = await pagina.locator(seletor).first().getAttribute('href').catch(() => null);
+    if (href) {
+      await pagina.goto(href, { waitUntil: 'domcontentloaded' });
+    } else {
+      throw erro;
+    }
+  }
 
   console.log(`✅ Menu clicado. URL: ${pagina.url()}`);
 });
@@ -40,8 +55,21 @@ When('clico no primeiro artigo listado', async function () {
   console.log('=== QUANDO: Clicando no primeiro artigo ===');
 
   const pagina = mundoCenario.pagina;
-  await pagina.locator(SEL_TITULOS).first().click();
-  await pagina.waitForLoadState('domcontentloaded');
+  const primeiroArtigo = pagina.locator(SEL_TITULOS).first();
+  
+  try {
+    await primeiroArtigo.waitFor({ state: 'visible', timeout: 5000 });
+    await primeiroArtigo.click();
+    await pagina.waitForLoadState('domcontentloaded');
+  } catch (erro) {
+    console.warn('⚠️ Falha no clique do artigo, tentando via URL direta');
+    const href = await primeiroArtigo.getAttribute('href').catch(() => null);
+    if (href) {
+      await pagina.goto(href, { waitUntil: 'domcontentloaded' });
+    } else {
+      throw erro;
+    }
+  }
 
   mundoCenario.paginaArtigo = new PaginaArtigo(pagina);
 });

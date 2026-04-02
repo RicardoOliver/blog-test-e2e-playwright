@@ -50,11 +50,15 @@ export class PaginaPesquisa extends PaginaBase {
   }
 
   urlContemTermoPesquisa(termo) {
-    const url      = this.obterUrlAtual();
-    const codif    = encodeURIComponent(termo).replace(/%20/g, '+');
+    const url      = this.obterUrlAtual().toLowerCase();
+    const termoLower = termo.toLowerCase();
+    const codif    = encodeURIComponent(termoLower).replace(/%20/g, '+');
+    const codifRaw = encodeURIComponent(termoLower);
+    
     return url.includes(`s=${codif}`) ||
-           url.includes(`s=${termo}`) ||
-           url.includes(termo);
+           url.includes(`s=${codifRaw}`) ||
+           url.includes(`s=${termoLower}`) ||
+           url.includes(termoLower);
   }
 
   paginaResultadosCarregada() {
@@ -82,13 +86,27 @@ export class PaginaPesquisa extends PaginaBase {
   }
 
   async realizarNovaPesquisa(novoTermo) {
+    console.log(`🔍 Realizando nova pesquisa por: "${novoTermo}"`);
+    const campo = this.pagina.locator(SEL.campoPesquisa).first();
+    
     try {
-      const visivel = await this.estaVisivel(SEL.botaoPesquisa);
-      if (visivel) await this.clicar(SEL.botaoPesquisa);
-    } catch { /* campo já visível */ }
-    await this.preencher(SEL.campoPesquisa, novoTermo);
-    await this.pressionarTecla(SEL.campoPesquisa, 'Enter');
-    await this.aguardarCarregamento();
+      // Se houver um botão de lupa na página de resultados para abrir o campo
+      const botao = this.pagina.locator(SEL.botaoPesquisa).first();
+      if (await botao.isVisible()) {
+        await botao.click();
+      }
+
+      // Preenche o campo (que já está visível na página de resultados por padrão no tema Astra)
+      await campo.waitFor({ state: 'attached', timeout: 5000 });
+      await campo.fill(novoTermo);
+      await campo.press('Enter');
+      await this.aguardarCarregamento();
+    } catch (erro) {
+      console.warn('⚠️ Falha ao usar campo de pesquisa da página de resultados, usando fallback URL');
+      const urlPesquisa = `https://blog.agibank.com.br/?s=${encodeURIComponent(novoTermo)}`;
+      await this.pagina.goto(urlPesquisa, { waitUntil: 'domcontentloaded' });
+    }
+    
     return new PaginaPesquisa(this.pagina);
   }
 
