@@ -64,7 +64,7 @@ module.exports = {
     language: 'pt',
     format: [relatorioConsole, relatorioJson, relatorioHtml, relatorioAllure],
     tags: '@regressao and not @Ignorar',
-    parallel: 1,
+    parallel: 2, // Aumentado para rodar 2 cenários simultâneos
     timeout: 60000,
   },
 
