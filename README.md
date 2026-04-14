@@ -188,3 +188,9 @@ BROWSER=webkit HEADLESS=false npm run test:smoke
 | [@cucumber/cucumber](https://cucumber.io) | 11.x | Framework BDD |
 | [allure-cucumberjs](https://allurereport.org) | 3.x | Relatórios |
 | [dotenv](https://npmjs.com/package/dotenv) | 16.x | Configuração via .env |
+
+<br/>
+
+![Visualizações](https://views-counter.vercel.app/badge?pageId=RicardoOliver/blog-test-e2e-playwright)
+
+<br/>
