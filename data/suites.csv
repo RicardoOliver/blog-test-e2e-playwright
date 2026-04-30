@@ -1,0 +1,139 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","774","Todas as categorias principais têm artigos","","Thu Apr 30 07:02:52 UTC 2026","passed","Thu Apr 30 07:02:53 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","764","Todas as categorias principais têm artigos","","Thu Apr 30 07:02:54 UTC 2026","passed","Thu Apr 30 07:02:54 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2073","Todas as categorias principais têm artigos","","Thu Apr 30 07:02:56 UTC 2026","passed","Thu Apr 30 07:02:58 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","1617","Acessar categoria Pix exibe artigos","","Thu Apr 30 07:02:20 UTC 2026","passed","Thu Apr 30 07:02:22 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6950","Pesquisa em maiúsculas encontra resultados","","Thu Apr 30 07:05:15 UTC 2026","passed","Thu Apr 30 07:05:22 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","8892","Pesquisa por termo válido retorna resultados","","Thu Apr 30 07:02:26 UTC 2026","passed","Thu Apr 30 07:02:35 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","659","URL de categoria com paginação direta é acessível","","Thu Apr 30 07:03:16 UTC 2026","passed","Thu Apr 30 07:03:17 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2127","Acessar artigo com URL inválida exibe tratamento de erro","","Thu Apr 30 07:02:50 UTC 2026","passed","Thu Apr 30 07:02:52 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6747","Pesquisa com 1 caractere é processada","","Thu Apr 30 07:04:35 UTC 2026","passed","Thu Apr 30 07:04:42 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","5105","Submeter pesquisa com Enter redireciona para resultados","","Thu Apr 30 07:03:08 UTC 2026","passed","Thu Apr 30 07:03:13 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","6838","Pesquisa a partir de página de categoria funciona","","Thu Apr 30 07:03:09 UTC 2026","passed","Thu Apr 30 07:03:16 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6358","Pesquisa com hífen é tratada sem erro","","Thu Apr 30 07:05:29 UTC 2026","passed","Thu Apr 30 07:05:36 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","1596","Artigos listados possuem links válidos de leitura","","Thu Apr 30 07:03:17 UTC 2026","passed","Thu Apr 30 07:03:19 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6597","Pesquisa com termos financeiros válidos","","Thu Apr 30 07:02:42 UTC 2026","passed","Thu Apr 30 07:02:48 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6852","Pesquisa com maiúsculas e minúsculas misturadas funciona","","Thu Apr 30 07:05:22 UTC 2026","passed","Thu Apr 30 07:05:29 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","35440","Nova pesquisa a partir dos resultados atualiza a página","","Thu Apr 30 07:03:20 UTC 2026","broken","Thu Apr 30 07:03:56 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2977","Acessar submenu Conta Corrente exibe artigos","","Thu Apr 30 07:02:32 UTC 2026","passed","Thu Apr 30 07:02:35 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6383","Pesquisa com 80 caracteres não quebra a aplicação","","Thu Apr 30 07:04:55 UTC 2026","passed","Thu Apr 30 07:05:01 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2187","Acessar categoria Empréstimos exibe artigos","","Thu Apr 30 07:02:18 UTC 2026","passed","Thu Apr 30 07:02:20 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6942","Clicar no primeiro resultado abre o artigo","","Thu Apr 30 07:03:13 UTC 2026","passed","Thu Apr 30 07:03:20 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2559","Acessar categoria Suas Finanças exibe artigos","","Thu Apr 30 07:02:22 UTC 2026","passed","Thu Apr 30 07:02:24 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6484","Pesquisa com script HTML não executa código malicioso","","Thu Apr 30 07:04:15 UTC 2026","passed","Thu Apr 30 07:04:22 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2475","Navegar entre categorias sem voltar para home","","Thu Apr 30 07:03:07 UTC 2026","passed","Thu Apr 30 07:03:09 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6512","Pesquisa com número aleatório não relacionado","","Thu Apr 30 07:04:22 UTC 2026","passed","Thu Apr 30 07:04:28 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2095","Todas as categorias principais têm artigos","","Thu Apr 30 07:02:54 UTC 2026","passed","Thu Apr 30 07:02:56 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","8216","Acessar submenu Empréstimo Consignado exibe artigos","","Thu Apr 30 07:02:24 UTC 2026","passed","Thu Apr 30 07:02:32 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6807","Pesquisa com 2 caracteres é processada","","Thu Apr 30 07:04:42 UTC 2026","passed","Thu Apr 30 07:04:48 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6937","Pesquisa com acento funciona corretamente","","Thu Apr 30 07:05:08 UTC 2026","passed","Thu Apr 30 07:05:15 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6545","Pesquisa com termo inexistente exibe mensagem de nenhum resultado","","Thu Apr 30 07:03:56 UTC 2026","passed","Thu Apr 30 07:04:02 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6524","Pesquisa com termos financeiros válidos","","Thu Apr 30 07:02:55 UTC 2026","passed","Thu Apr 30 07:03:01 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6645","Pesquisa com apenas espaços em branco é tratada","","Thu Apr 30 07:04:48 UTC 2026","passed","Thu Apr 30 07:04:55 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6884","Pesquisa com aspas duplas não quebra a aplicação","","Thu Apr 30 07:05:43 UTC 2026","passed","Thu Apr 30 07:05:49 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6470","Pesquisa com sequência aleatória não retorna artigos","","Thu Apr 30 07:04:02 UTC 2026","passed","Thu Apr 30 07:04:09 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","8500","Navegar até a segunda página de uma categoria lista artigos","","Thu Apr 30 07:02:58 UTC 2026","passed","Thu Apr 30 07:03:07 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7007","Espaço antes e depois do termo retorna resultados","","Thu Apr 30 07:05:01 UTC 2026","passed","Thu Apr 30 07:05:08 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","757","Todas as categorias principais têm artigos","","Thu Apr 30 07:02:53 UTC 2026","passed","Thu Apr 30 07:02:53 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6736","Pesquisa com termos financeiros válidos","","Thu Apr 30 07:03:01 UTC 2026","passed","Thu Apr 30 07:03:08 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","1886","Clicar em artigo dentro de categoria abre a página do artigo","","Thu Apr 30 07:02:35 UTC 2026","passed","Thu Apr 30 07:02:37 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6791","Pesquisa com termos financeiros válidos","","Thu Apr 30 07:02:48 UTC 2026","passed","Thu Apr 30 07:02:55 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","677","Página inicial exibe artigos e está carregada corretamente","","Thu Apr 30 07:02:37 UTC 2026","passed","Thu Apr 30 07:02:38 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6652","Pesquisa por ""pix"" retorna artigos","","Thu Apr 30 07:02:35 UTC 2026","passed","Thu Apr 30 07:02:42 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","9857","Paginação da categoria funciona corretamente","","Thu Apr 30 07:02:38 UTC 2026","passed","Thu Apr 30 07:02:48 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6983","Pesquisa com número de ano retorna artigos","","Thu Apr 30 07:05:36 UTC 2026","passed","Thu Apr 30 07:05:43 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6488","Pesquisa com caracteres especiais não quebra a aplicação","","Thu Apr 30 07:04:09 UTC 2026","passed","Thu Apr 30 07:04:15 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2050","Acessar URL de categoria inexistente não quebra o site","","Thu Apr 30 07:02:48 UTC 2026","passed","Thu Apr 30 07:02:50 UTC 2026","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6634","Campo de pesquisa vazio submetido com Enter não quebra","","Thu Apr 30 07:04:28 UTC 2026","passed","Thu Apr 30 07:04:35 UTC 2026","","","",""
