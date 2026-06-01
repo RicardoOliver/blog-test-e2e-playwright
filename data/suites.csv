@@ -1,0 +1,139 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","5787","Navegar entre categorias sem voltar para home","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2533","Todas as categorias principais têm artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","4125","Acessar categoria Suas Finanças exibe artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","4084","Acessar categoria Empréstimos exibe artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","5265","Clicar em artigo dentro de categoria abre a página do artigo","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2328","Todas as categorias principais têm artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7011","Pesquisa com número de ano retorna artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6523","Pesquisa com script HTML não executa código malicioso","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7324","Pesquisa com termos financeiros válidos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6968","Pesquisa com aspas duplas não quebra a aplicação","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","37096","Nova pesquisa a partir dos resultados atualiza a página","","2026-06-01","broken","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7543","Pesquisa com termos financeiros válidos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","3100","Acessar categoria Pix exibe artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2340","Todas as categorias principais têm artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6621","Pesquisa com 80 caracteres não quebra a aplicação","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7100","Pesquisa com 1 caractere é processada","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7080","Pesquisa com acento funciona corretamente","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7007","Campo de pesquisa vazio submetido com Enter não quebra","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2430","Todas as categorias principais têm artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6906","Pesquisa com termo inexistente exibe mensagem de nenhum resultado","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","9210","Clicar no primeiro resultado abre o artigo","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","731","Página inicial exibe artigos e está carregada corretamente","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","765","URL de categoria com paginação direta é acessível","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","9745","Acessar submenu Empréstimo Consignado exibe artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7092","Pesquisa em maiúsculas encontra resultados","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7397","Pesquisa por ""pix"" retorna artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7126","Pesquisa com termos financeiros válidos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7444","Espaço antes e depois do termo retorna resultados","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7298","Pesquisa com 2 caracteres é processada","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","3678","Acessar submenu Conta Corrente exibe artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2255","Acessar URL de categoria inexistente não quebra o site","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6508","Pesquisa com termos financeiros válidos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2336","Todas as categorias principais têm artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","1636","Artigos listados possuem links válidos de leitura","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","9453","Pesquisa por termo válido retorna resultados","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6534","Pesquisa com caracteres especiais não quebra a aplicação","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6713","Pesquisa com sequência aleatória não retorna artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6575","Pesquisa com maiúsculas e minúsculas misturadas funciona","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6624","Pesquisa com número aleatório não relacionado","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","12206","Navegar até a segunda página de uma categoria lista artigos","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","6547","Pesquisa com hífen é tratada sem erro","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","8734","Pesquisa a partir de página de categoria funciona","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7060","Submeter pesquisa com Enter redireciona para resultados","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","12929","Paginação da categoria funciona corretamente","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero navegar pelas categorias de artigos disponíveis no menu
+  Para encontrar conteúdos específicos sobre produtos financeiros","2471","Acessar artigo com URL inválida exibe tratamento de erro","","2026-06-01","passed","2026-06-01","","","",""
+"Como um visitante do Blog do Agi
+  Quero pesquisar artigos utilizando a lupa no canto superior direito
+  Para encontrar conteúdos sobre empréstimos e educação financeira","7137","Pesquisa com apenas espaços em branco é tratada","","2026-06-01","passed","2026-06-01","","","",""
